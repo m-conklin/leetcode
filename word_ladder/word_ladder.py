@@ -31,4 +31,10 @@ for word in dict:
 print 'end_list:', end_list
 
 
+node = [0 for i in dict]
+graph = [node for i in dict]
 
+   
+print 'Graph:'
+for node in graph:
+    print node
