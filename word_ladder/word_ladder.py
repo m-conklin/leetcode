@@ -1,3 +1,7 @@
 #!/usr/bin/env python
 
-print 'j'
+start = 'hit'
+end = 'cog'
+dict = ['hot','dot','dog','lot','log']
+
+print start, end, dict
