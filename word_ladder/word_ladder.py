@@ -7,7 +7,7 @@ wl = len(start)
 w_check = wl - 1
 dl = len(dict)
 r_dl = range(dl)
-#print 'dict:', dict
+print 'dict:', dict
 
 start_list =[]
 letter_match = 0 
@@ -20,9 +20,9 @@ for word in r_dl:
         start_list.append(word)
     letter_match = 0
 
-#print 'start_list:',start_list
-#for i in start_list:
-#    print dict[i]
+print 'start_list:',start_list
+for i in start_list:
+    print dict[i]
 
 end_list =[]
 letter_match = 0
@@ -34,9 +34,9 @@ for word in r_dl:
     if letter_match == w_check:
         end_list.append(word)
     letter_match = 0
-#print 'end_list:', end_list
-#for i in end_list:
-#    print dict[i]
+print 'end_list:', end_list
+for i in end_list:
+    print dict[i]
 
 graph = [[0 for i in dict] for i in dict]
 
@@ -53,9 +53,9 @@ for i in range(dl-1):
             graph[i][j],graph[j][i] = 1,1
         letter_match = 0
 
-#print 'Graph:'
-#for v in graph:
-#    print v
+print 'Graph:'
+for v in graph:
+    print v
 
 vertices = [[None,None] for word in dict]
 vertices_list = []
@@ -73,7 +73,7 @@ for start_vertex in start_list:
                     dist = vertices[dq][0] + 1
                     vertices[adj] = [dist,dq]
         vertices_list.append(vertices)
-#print 'vert:',vertices_list
+print 'vert:',vertices_list
 
 
 shortest_path = -1
