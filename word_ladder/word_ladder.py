@@ -7,7 +7,7 @@ wl = len(start)
 w_check = wl - 1
 dl = len(dict)
 r_dl = range(dl)
-print 'dict:', dict
+#print 'dict:', dict
 
 start_list =[]
 letter_match = 0 
@@ -20,9 +20,9 @@ for word in r_dl:
         start_list.append(word)
     letter_match = 0
 
-print 'start_list:',start_list
-for i in start_list:
-    print dict[i]
+#print 'start_list:',start_list
+#for i in start_list:
+#    print dict[i]
 
 end_list =[]
 letter_match = 0
@@ -34,16 +34,11 @@ for word in r_dl:
     if letter_match == w_check:
         end_list.append(word)
     letter_match = 0
-print 'end_list:', end_list
-for i in end_list:
-    print dict[i]
+#print 'end_list:', end_list
+#for i in end_list:
+#    print dict[i]
 
 graph = [[0 for i in dict] for i in dict]
-
-   
-print 'Graph:'
-for v in graph:
-    print v
 
 letter_match = 0
 
@@ -58,16 +53,15 @@ for i in range(dl-1):
             graph[i][j],graph[j][i] = 1,1
         letter_match = 0
 
-print 'Graph:'
-for v in graph:
-    print v
+#print 'Graph:'
+#for v in graph:
+#    print v
 
 vertices = [[None,None] for word in dict]
-
+vertices_list = []
 queue = []
 
 for start_vertex in start_list:
-#    for end_vertex in end_list:
         queue.append(start_vertex)
         vertices[start_vertex][0] = 0
 
@@ -78,8 +72,19 @@ for start_vertex in start_list:
                     queue.append(adj)
                     dist = vertices[dq][0] + 1
                     vertices[adj] = [dist,dq]
+        vertices_list.append(vertices)
+#print 'vert:',vertices_list
 
-#        print 'end:',end_vertex, dict[end_vertex]
-        print 'vert:',vertices
+
+shortest_path = -1
+
+for v_list in vertices_list:
+    for end in end_list:
+        if v_list[end][0] > -1 or v_list[end][0] < shortest_path:
+            shortest_path = v_list[end][0]
+
+shortest_path += 3
+print 's_path:', shortest_path
+
 
             
